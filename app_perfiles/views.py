@@ -8,9 +8,9 @@ from django.views.generic.edit import CreateView, UpdateView , DeleteView
 
 class PerfilesBaseViews(View):
     model = Perfil
-    template_name = 'nosotros.html'
+    template_name = 'perfiles.html'
     fields = "__all__"
-    success_url = reverse_lazy("nosotros:all")
+    success_url = reverse_lazy("perfiles:all")
 
 
 class PerfilesListView(PerfilesBaseViews, ListView):

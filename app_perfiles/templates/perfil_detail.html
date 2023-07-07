@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <div class="main-color-vinos">
+        <h1>{{perfilnombre}}</h1>
+        {% for label, value in perfilget_fields %}
+
+        <p>{{label | upper}}</p>
+        <p>{{value}}</p>
+
+        {% endfor %}
+
+        <a href="{% url 'perfiles:all' %}">BACK</a>
+    </div>
+</main>
+{% endblock %}
