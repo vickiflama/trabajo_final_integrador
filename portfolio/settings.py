@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 APPS_CUSTOM = [
     "app_perfiles"
 ]
+APPS_EXTERNA ={
+    "rest_framework"
+}
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -44,6 +47,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += APPS_CUSTOM
+
+INSTALLED_APPS += APPS_EXTERNA
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

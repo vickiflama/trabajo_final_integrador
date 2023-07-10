@@ -6,6 +6,9 @@ from .views import  PerfilesListView ,\
                     PerfilesDeleteView ,\
                     PerfilesCreateView
 
+from .router import router
+
+
 app_name = "perfiles"
 
 urlpatterns = [
@@ -14,7 +17,10 @@ urlpatterns = [
     path("<int:pk>/update/", PerfilesUpdateView.as_view(), name = "update"),
     path("<int:pk>/delete/", PerfilesDeleteView.as_view(), name = "delete"),
     path("create/", PerfilesCreateView.as_view(), name = "create"),
+    
 ]
+
+urlpatterns += router.urls
 
 # from django.contrib import admin
 # from django.urls import path, include

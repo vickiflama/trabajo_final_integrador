@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-
 from .views import PortfolioView
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path ("", PortfolioView.as_view(), name = "landing_page" ),
     path ("perfiles/", include ("app_perfiles.urls")),
+    path ("", PortfolioView.as_view(), name = "landing_page" ),
+    
 ]
+
