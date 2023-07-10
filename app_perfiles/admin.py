@@ -4,7 +4,9 @@ from .models import Perfil
 
 @admin.register(Perfil)
 class PerfilAdmin(admin.ModelAdmin):
-    list_display=('id','nombre')
-    list_display_links = ('nombre',)
+    ...
+
+    # list_display=('id','nombre')
+    # list_display_links = ('nombre',)
 #admin.site.register(Perfil)
 #admin.site.register(Perfil, PerfilAdmin)

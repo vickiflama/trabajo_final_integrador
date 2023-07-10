@@ -4,7 +4,7 @@
 <main>
     <div class="main-color-vinos">
         <h1>Estas seguro que deseas borrar este perfil?</h1>
-        <h2>{{perfilnombre}}</h2>
+        <h2>{{perfil.nombre}}</h2>
         <form method="post">
             {% csrf_token %}
             <div>{{form.as_p}}</div>

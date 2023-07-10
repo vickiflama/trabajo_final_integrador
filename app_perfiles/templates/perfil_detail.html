@@ -3,8 +3,8 @@
 
 <main>
     <div class="main-color-vinos">
-        <h1>{{perfilnombre}}</h1>
-        {% for label, value in perfilget_fields %}
+        <h1>{{perfil.nombre}}</h1>
+        {% for label, value in perfil.obtener_campos_valores %}
 
         <p>{{label | upper}}</p>
         <p>{{value}}</p>

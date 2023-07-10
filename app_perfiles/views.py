@@ -6,38 +6,38 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView , DeleteView
 
-class PerfilesBaseViews(View):
+class PerfilesBaseView(View):
     model = Perfil
     template_name = 'perfiles.html'
     fields = "__all__"
     success_url = reverse_lazy("perfiles:all")
 
 
-class PerfilesListView(PerfilesBaseViews, ListView):
+class PerfilesListView(PerfilesBaseView, ListView):
     ...
 
 
-class PerfilesDetailView (PerfilesBaseViews, DetailView):
+class PerfilesDetailView (PerfilesBaseView, DetailView):
     template_name = "perfil_detail.html"
 
 
-class PerfilesCreateView (PerfilesBaseViews, CreateView):
+class PerfilesCreateView (PerfilesBaseView, CreateView):
     template_name = "perfil_create.html"
-    extra_context = [
-        "tipo" == "Create Perfil"
-    ]
+    extra_context = {
+                "tipo" : "Create Perfil"
+    }
 
-class PerfilesUpdateView (PerfilesBaseViews, UpdateView):
-    template_name = "perfil_create.html"
-    extra_context = [
-        "tipo" == "Update Perfil"
-    ]
+class PerfilesUpdateView (PerfilesBaseView, UpdateView):
+    template_name = 'perfil_create.html'
+    extra_context = {
+        "tipo" : "Update Perfil"
+    }
 
-class PerfilesDeleteView (PerfilesBaseViews, DeleteView):
+class PerfilesDeleteView (PerfilesBaseView, DeleteView):
     template_name = "perfil_delete.html"
-    extra_context = [
-        "tipo" == "Delete Perfil"
-    ]
+    extra_context = {
+        "tipo" : "Delete Perfil"
+    }
 
 # from django.http import HttpResponse
 # from django.template import Template,Context

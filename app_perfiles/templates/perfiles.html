@@ -2,37 +2,40 @@
 
 {% block content %}
 
-<section class="sectionContacto" id="contacto">
-    <div class="diseñoContacto"> <!-- -->
+ <main>
+  <div class="diseñoContacto">
+      <h1 class="titulo">Todos los vinos</h1>
+      <h2><a href="{% url 'perfiles:create' %}">CREAR PERFIL</a></h2>
+  
+  
+      {% for perfil in perfiles_list %}
       <div>
-        <p class="titulo">Cargar Nuevo Perfil</p>
+          <span >
+              <p class="formulario">{{forloop.counter}}</p>
+          </span>
+          <span>
+              <p class="formulario">{{vino.nombre}}</p>
+          </span>
+          <span class="formulario">
+            <label for="">Detalle: </label>
+              <a href= " {% url 'perfiles:detail' perfil.id %} " class="formulario" > lala</a>
+          </span>
+          <span class="formulario">
+            <label for="">Editar</label>
+              <a href="{% url 'perfiles:create' pk=perfil.id %} " class="formulario">+</a>
+          </span>
+          <span class="">
+            <label for="{{ perfil.id }}">Borrar: </label>
+              <a href="{% url 'perfiles:delete' pk=perfil.id %} " class="formulario">+</a>
+          </span>
       </div>
-      <form id="formularioCurso" action="/registrarPerfil/" method="POST">{% csrf_token %}                    
-        <div class="formulario">
-          <label for="nombreP">
-            <input type="text" id="nombreP" name="nombreP" class="form-control" placeholder="Nombre" autofocus/>
-          </label>
-        </div>
-        <div class="formulario">
-          <label for="telefonoP">
-            <input type="number" id="telefonoP" name="telefonoP" class="form-control"/ placeholder="Telefono">
-          </label>
-        </div>
-        <div class="formulario">
-          <label for="emailP">
-            <input type="email" name="emailP" id="mailform" placeholder="E-mail" pattern="^[a-zA-Z0-9!#$%&amp;'*+\/=?^_`\{\|\}~.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)*$">
-          </label>
-        </div>
-        <div class="formulario">
-          <label for="domicilioP">
-            <input type="text" name="domicilioP" id="domicilioP" placeholder="Domicilio">
-          </label>
-        </div>
-        <div class="formulario">
-        <input type="submit" value="Guardar Perfil" id="formButton">
-        </div>
-      </form>
-      
-    </div>
-  </section>
+
+      {% endfor %}
+
+  </div>
+</main> 
+
+
+
+
 {% endblock %}
