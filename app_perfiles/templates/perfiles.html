@@ -2,34 +2,35 @@
 
 {% block content %}
 
- <main>
+<main class="sectionContacto">
   <div class="diseñoContacto">
-      <h1 class="titulo">Todos los vinos</h1>
+      <h1 class="titulo">Perfiles</h1>
       <h2><a href="{% url 'perfiles:create' %}">CREAR PERFIL</a></h2>
   
   
-      {% for perfil in perfiles_list %}
-      <div>
-          <span >
-              <p class="formulario">{{forloop.counter}}</p>
-          </span>
-          <span>
-              <p class="formulario">{{vino.nombre}}</p>
-          </span>
+      {% for perfil in perfil %}
+      <ul>
+      <li> {{perfil.nombre}}</li>
+      <li>{{perfil.telefono}}</li>
+      <li>{{perfil.email}}</li>
+      <li>{{perfil.domicilio}}</li>
+      </ul>
+      <div> 
           <span class="formulario">
             <label for="">Detalle: </label>
-              <a href= " {% url 'perfiles:detail' perfil.id %} " class="formulario" > lala</a>
+              <a href= "{% url 'perfiles:detail' perfil.id %}" class="formulario" > +</a>
           </span>
           <span class="formulario">
             <label for="">Editar</label>
-              <a href="{% url 'perfiles:create' pk=perfil.id %} " class="formulario">+</a>
+              <a href="{% url 'perfiles:create' perfil.id %}" class="formulario">+ </a>
           </span>
           <span class="">
-            <label for="{{ perfil.id }}">Borrar: </label>
-              <a href="{% url 'perfiles:delete' pk=perfil.id %} " class="formulario">+</a>
+            <label for="">Borrar: </label>
+              <a href="{% url 'perfiles:delete' perfil.id %}" class="formulario">+ </a>
           </span>
       </div>
 
+      
       {% endfor %}
 
   </div>

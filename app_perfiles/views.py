@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from .models import Perfil
 from django.views import View
+
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView , DeleteView
+
+
+def profile (request):
+    profileList = Perfil.objects.all()
+    return render(request, "perfiles.html", {"perfiles":profileList})
+    
 
 class PerfilesBaseView(View):
     model = Perfil
